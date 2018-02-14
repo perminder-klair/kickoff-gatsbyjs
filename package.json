@@ -43,6 +43,7 @@
     "gatsby-transformer-remark": "^1.7.28",
     "gatsby-transformer-sharp": "^1.6.16",
     "graphql-tag": "^2.7.3",
+    "node-fetch": "^2.0.0",
     "react-apollo": "^2.0.4",
     "react-helmet": "^5.2.0",
     "react-load-script": "^0.0.6",
