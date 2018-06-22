@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import styled from 'styled-components';
 
-import config from '../config/index';
+import config from '../utils/config';
 import Header from '../components/Header';
-import './index.css';
+import './layout.css';
 
 const Container = styled.div`
   margin: 0 auto;
@@ -21,12 +21,12 @@ const IndexLayout = ({ children }) => (
       meta={[{ name: 'description', content: config.description }]}
     />
     <Header />
-    <Container>{children()}</Container>
+    <Container>{children}</Container>
   </div>
 );
 
 IndexLayout.propTypes = {
-  children: PropTypes.func.isRequired,
+  children: PropTypes.array.isRequired,
 };
 
 export default IndexLayout;

@@ -1,10 +1,12 @@
 import React from 'react';
-import Link from 'gatsby-link';
-import Helmet from 'react-helmet';
+
+import config from '../utils/config';
+import Seo from '../components/Seo';
+import Layout from '../components/Layout';
 
 function encode(data) {
   return Object.keys(data)
-    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
     .join('&');
 }
 
@@ -32,8 +34,12 @@ export default class ContactPage extends React.Component {
 
   render() {
     return (
-      <div>
-        <Helmet title="Contact" />
+      <Layout>
+        <Seo
+          title="Contact"
+          description="Contact us today!"
+          url={`${config.siteUrl}`}
+        />
         <h1>Contact</h1>
         <form
           name="contact"
@@ -65,7 +71,7 @@ export default class ContactPage extends React.Component {
             <button type="submit">Send</button>
           </p>
         </form>
-      </div>
+      </Layout>
     );
   }
 }
