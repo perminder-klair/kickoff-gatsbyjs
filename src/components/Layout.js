@@ -16,10 +16,16 @@ const Container = styled.div`
 
 const IndexLayout = ({ children }) => (
   <div>
-    <Helmet
-      title={config.siteName}
-      meta={[{ name: 'description', content: config.description }]}
-    />
+    <Helmet>
+      <title>{config.siteName}</title>
+      <meta charSet="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta description={config.description} />
+
+      {/* Add custom css or scripts here */}
+
+      {/* Add custom css or scripts here */}
+    </Helmet>
     <Header />
     <Container>{children}</Container>
   </div>
