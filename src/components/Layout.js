@@ -21,10 +21,6 @@ const IndexLayout = ({ children }) => (
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta description={config.description} />
-
-      {/* Add custom css or scripts here */}
-
-      {/* Add custom css or scripts here */}
     </Helmet>
     <Header />
     <Container>{children}</Container>
