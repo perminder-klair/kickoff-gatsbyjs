@@ -5,7 +5,6 @@ import styled from 'styled-components';
 
 import config from '../utils/config';
 import Header from './Header';
-import './layout.css';
 
 const Container = styled.div`
   margin: 0 auto;
