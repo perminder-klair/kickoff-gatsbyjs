@@ -8,6 +8,9 @@ const Container = styled.div`
   margin-top: 2rem;
   margin-bottom: 4rem;
   text-align: center;
+  h1 {
+    color: ${props => props.theme.mainBrandColor} !important;
+  }
 `;
 
 export default class IndexPage extends React.Component {
