@@ -1,23 +1,27 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import styled from 'styled-components';
 
-import config from '../utils/config';
 import Seo from '../components/Seo';
 import Layout from '../components/Layout';
+
+const Container = styled.div`
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+  text-align: center;
+`;
 
 export default class IndexPage extends React.Component {
   render() {
     return (
       <Layout>
-        <Seo
-          title="Home"
-          description="Welcome to GatsbyJs v1"
-          url={`${config.siteUrl}`}
-        />
-        <h1>Hi people</h1>
-        <p>Welcome to your new Gatsby site.</p>
-        <p>Now go build something great.</p>
-        <Link to="/contact">Contact</Link>
+        <Seo title="Home" description="Welcome to GatsbyJs v1" />
+        <section className="section">
+          <Container className="container">
+            <h1 className="title">Hi people</h1>
+            <p>Welcome to your new Gatsby site.</p>
+            <p>Now go build something great.</p>
+          </Container>
+        </section>
       </Layout>
     );
   }
