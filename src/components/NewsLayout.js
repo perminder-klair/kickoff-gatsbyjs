@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
+import { graphql } from 'gatsby';
 
 import Seo from './Seo';
 import PageLayout from './PageLayout';
