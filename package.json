@@ -19,6 +19,12 @@
     "build": "gatsby build",
     "lint": "eslint --ignore-path .gitignore \"src/**/*.{js,jsx}\""
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "npm run lint"
+    }
+  },
   "dependencies": {
     "@mdx-js/mdx": "^1.6.16",
     "@mdx-js/react": "^1.6.16",
