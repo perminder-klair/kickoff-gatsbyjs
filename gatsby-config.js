@@ -8,12 +8,19 @@ module.exports = {
     siteUrl: config.siteUrl,
   },
   plugins: [
-    `gatsby-plugin-emotion`,
+    `gatsby-plugin-styled-components`,
     `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-lodash`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [`poppins`],
+        display: 'swap',
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

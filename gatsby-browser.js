@@ -1,3 +1,8 @@
-/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/prefer-default-export */
 
-import 'tailwindcss/dist/base.min.css';
+import React from 'react';
+import { ThemeProvider } from './src/utils/themeContext';
+
+export const wrapRootElement = ({ element }) => (
+  <ThemeProvider>{element}</ThemeProvider>
+);
