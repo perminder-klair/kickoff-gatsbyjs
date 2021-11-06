@@ -8,6 +8,10 @@ A starting point using ReactJs, bundled with awesome GatsbyJs v4.
 
 - [GatsbyJs](https://www.gatsbyjs.org/)
 - [React.js](https://reactjs.org/)
+- [tailwindcss](https://tailwindcss.com/)
+- [headlessUI](https://headlessui.dev)
+- [heroicons](https://heroicons.com)
+- [Tailwind Blocks](https://tailblocks.cc/)
 
 ## To use
 
@@ -37,4 +41,12 @@ yarn start
 ```
 yarn run build
 yarn serve
+```
+
+## Lint code and check errors
+
+Using Eslint and Prettier
+
+```
+yarn lint
 ```
