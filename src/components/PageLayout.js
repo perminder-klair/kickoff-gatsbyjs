@@ -1,7 +1,7 @@
 /* eslint jsx-a11y/heading-has-content: 0 */
 
 import React from 'react';
-import styled from 'styled-components';
+import { styled } from 'twin.macro';
 import { MDXProvider } from '@mdx-js/react';
 
 import Layout from './Layout';
@@ -33,23 +33,22 @@ const Container = styled.div`
 export default function PageTemplate({ children }) {
   return (
     <Layout>
-      <Container className="container">
-        <div className="columns is-centered">
-          <div className="column is-four-fifths">
-            <section className="section">
-              <MDXProvider
-                components={{
-                  h1: (props) => <h1 className="title is-1" {...props} />,
-                  h2: (props) => <h2 className="title is-2" {...props} />,
-                  h3: (props) => <h3 className="title is-3" {...props} />,
-                  p: (props) => <p className="" {...props} />,
-                }}>
-                {children}
-              </MDXProvider>
-            </section>
-          </div>
+      <section tw="text-gray-600 ">
+        <div tw="container px-5 py-24 mx-auto">
+          <Container className="container">
+            <MDXProvider
+            // components={{
+            //   h1: (props) => <h1 className="title is-1" {...props} />,
+            //   h2: (props) => <h2 className="title is-2" {...props} />,
+            //   h3: (props) => <h3 className="title is-3" {...props} />,
+            //   p: (props) => <p className="" {...props} />,
+            // }}
+            >
+              {children}
+            </MDXProvider>
+          </Container>
         </div>
-      </Container>
+      </section>
     </Layout>
   );
 }

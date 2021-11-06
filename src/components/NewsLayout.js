@@ -1,5 +1,4 @@
-/* eslint jsx-a11y/heading-has-content: 0 */
-
+import 'twin.macro';
 import React from 'react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { graphql } from 'gatsby';
@@ -11,12 +10,14 @@ export default function PageTemplate({ data: { mdx } }) {
   return (
     <PageLayout>
       <Seo title={mdx.frontmatter.title} />
-      <div className="page-content">
-        <h1 className="title is-1 has-text-centered has-text-weight-bold">
-          {mdx.frontmatter.title}
-        </h1>
-        <MDXRenderer>{mdx.body}</MDXRenderer>
-      </div>
+      <section tw="text-gray-600 relative">
+        <div tw="container px-5 py-12 mx-auto">
+          <h1 tw="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">
+            {mdx.frontmatter.title}
+          </h1>
+          <MDXRenderer>{mdx.body}</MDXRenderer>
+        </div>
+      </section>
     </PageLayout>
   );
 }

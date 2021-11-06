@@ -7,9 +7,9 @@ module.exports = {
   siteUrl: 'http://kickoff-gatsbyjs.netlify.com',
   logo: '/images/logo-1024.png',
 
-  telephone: '+1-123-123-123',
+  telephone: '+44-123-12312',
   email: 'john@doe.com',
-  location: 'California, USA',
+  location: 'London, UK',
   twitter: '@NAME-HERE',
   fbUserId: '@NAME-HERE',
   fbAppID: '@NAME-HERE',

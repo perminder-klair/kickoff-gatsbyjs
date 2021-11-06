@@ -1,15 +1,10 @@
+import 'twin.macro';
 import React from 'react';
-import styled from 'styled-components';
 import { graphql } from 'gatsby';
 
 import Layout from '../components/Layout';
 import Seo from '../components/Seo';
 import NewsItem from '../components/NewsItem';
-
-const Container = styled.div`
-  margin-top: 4rem;
-  margin-bottom: 6rem;
-`;
 
 const NewsUpdates = ({ data }) => {
   const { edges: posts } = data.allMdx;
@@ -17,19 +12,19 @@ const NewsUpdates = ({ data }) => {
   return (
     <Layout>
       <Seo title="News & Updates" />
-      <section className="section">
-        <Container className="container">
-          <h2 className="title is-2 has-text-centered has-text-weight-bold">
-            News & Updates
-          </h2>
-          <div className="columns is-centered">
-            <div className="column is-four-fifths">
-              {posts.map(({ node: post }) => (
-                <NewsItem key={post.id} post={post} />
-              ))}
-            </div>
+      <section tw="text-gray-600">
+        <div tw="container px-5 py-24 mx-auto">
+          <div tw="flex flex-col text-center w-full mb-12">
+            <h1 tw="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">
+              News & Updates
+            </h1>
           </div>
-        </Container>
+          <div tw="flex flex-wrap -m-4">
+            {posts.map(({ node: post }) => (
+              <NewsItem key={post.id} post={post} />
+            ))}
+          </div>
+        </div>
       </section>
     </Layout>
   );

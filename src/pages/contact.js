@@ -1,74 +1,41 @@
+import 'twin.macro';
 import React from 'react';
-import styled from 'styled-components';
 
 import config from '../utils/config';
 import Seo from '../components/Seo';
 import Layout from '../components/Layout';
 
-const Section = styled.div`
-  .container {
-    margin-top: 4rem;
-  }
-  p {
-    margin-bottom: 1rem;
-  }
-  .image {
-    width: 500px;
-    height: auto;
-    margin: 0 auto;
-    object-position: center;
-  }
-  .button {
-    margin-top: 2rem;
-  }
-`;
-
-const Contact = () => (
+const ContactPage = () => (
   <Layout>
     <Seo title="Contact Us" />
-    <Section className="section">
-      <div className="container">
-        <div className="columns is-centered">
-          <div className="column is-two-fifths">
-            <h2 className="title is-1 has-text-weight-bold">Contact Us</h2>
-            <p>
-              We’re as accessible as your good neighbour. Feel free
-              <br />
-              to give us a shout.
-            </p>
-            <p>
-              <span role="img" aria-label="Round Pushpin">
-                📍
-              </span>{' '}
-              {config.location}
-            </p>
-            <p className="is-4">
-              <span role="img" aria-label="e-mail">
-                📧
-              </span>{' '}
-              <a href={`mailto:${config.email}`}>{config.email}</a>
-            </p>
-            <p>
-              <span role="img" aria-label="telephone">
-                ☎️
-              </span>{' '}
-              <a href={`tel:${config.telephone}`}>{config.telephone}</a>
-            </p>
-            <p className="control">
-              <a href="#">
-                <button type="submit" className="button is-secondary is-medium">
-                  Get in touch
-                </button>
+    <section tw="text-gray-600 relative">
+      <div tw="container px-5 py-24 mx-auto">
+        <div tw="flex flex-col text-center w-full mb-6">
+          <h1 tw="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">
+            Contact Us
+          </h1>
+          <p tw="lg:w-2/3 mx-auto leading-relaxed text-base">
+            We’re as accessible as your good neighbor. Feel free to give us a
+            shout.
+          </p>
+        </div>
+        <div tw="lg:w-1/2 md:w-2/3 mx-auto">
+          <div tw="flex flex-wrap -m-2">
+            <div tw="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
+              <a tw="text-indigo-500" href={`mailto:${config.email}`}>
+                📧 {config.email}
+              </a>{' '}
+              |{' '}
+              <a tw="text-indigo-500" href={`tel:${config.telephone}`}>
+                ☎️ {config.telephone}
               </a>
-            </p>
-          </div>
-          <div className="column is-two-fifths">
-            <img className="image" src="/images/contact.svg" alt="contact us" />
+              <p tw="leading-normal my-5">📍{config.location}</p>
+            </div>
           </div>
         </div>
       </div>
-    </Section>
+    </section>
   </Layout>
 );
 
-export default Contact;
+export default ContactPage;
