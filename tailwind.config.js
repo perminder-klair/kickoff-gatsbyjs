@@ -1,5 +1,8 @@
 module.exports = {
   theme: {
+    fontFamily: {
+      sans: ['Poppins', 'sans-serif', 'ui-sans-serif'],
+    },
     extend: {
       backgroundColor: {
         primary: 'var(--bg-primary)',

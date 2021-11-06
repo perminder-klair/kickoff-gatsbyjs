@@ -14,11 +14,11 @@ const StylesBase = createGlobalStyle`
     --bg-secondary: #1E293B;
     --text-primary: #CBD5E1;
     --text-secondary: #FFFFFF;
-
     --color-primary: #2563EB;
   }
   body {
-    ${tw`bg-primary text-primary transition-all duration-200`}
+    ${'' /* font-family: Poppins,sans-serif,ui-sans-serif !important; */}
+    ${tw`bg-primary text-primary transition-all duration-200 font-sans`} !important
   }
 `;
 
