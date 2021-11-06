@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/html-has-lang */
 /* eslint react/destructuring-assignment: 0 */
 
 import React from 'react';

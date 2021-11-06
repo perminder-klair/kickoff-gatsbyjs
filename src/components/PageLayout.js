@@ -25,7 +25,7 @@ const Container = styled.div`
     img {
       display: flex;
       margin: 3rem auto 4rem auto;
-      box-shadow: ${props => props.theme.boxShadow};
+      box-shadow: ${(props) => props.theme.boxShadow};
     }
   }
 `;
@@ -39,12 +39,11 @@ export default function PageTemplate({ children }) {
             <section className="section">
               <MDXProvider
                 components={{
-                  h1: props => <h1 className="title is-1" {...props} />,
-                  h2: props => <h2 className="title is-2" {...props} />,
-                  h3: props => <h3 className="title is-3" {...props} />,
-                  p: props => <p className="" {...props} />,
-                }}
-              >
+                  h1: (props) => <h1 className="title is-1" {...props} />,
+                  h2: (props) => <h2 className="title is-2" {...props} />,
+                  h3: (props) => <h3 className="title is-3" {...props} />,
+                  p: (props) => <p className="" {...props} />,
+                }}>
                 {children}
               </MDXProvider>
             </section>

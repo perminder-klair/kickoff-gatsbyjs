@@ -6,7 +6,7 @@ import { Link } from 'gatsby';
 
 const Section = styled.section`
   padding: 1rem 1.5rem;
-  font-family: ${props => props.theme.primaryFontFamily};
+  font-family: ${(props) => props.theme.primaryFontFamily};
   .navbar {
     background-color: transparent;
   }
@@ -27,7 +27,7 @@ const Section = styled.section`
     font-weight: 700;
     font-size: 1.2rem;
     :hover {
-      color: ${props => props.theme.darkAccent};
+      color: ${(props) => props.theme.darkAccent};
     }
   }
   .navbar-burger {
@@ -64,8 +64,7 @@ export default class Header extends React.Component {
           <nav
             className="navbar"
             role="navigation"
-            aria-label="main navigation"
-          >
+            aria-label="main navigation">
             <div className="navbar-brand">
               <Link className="navbar-item" to="/">
                 <img src="/images/logo-1024.png" alt="site logo" />
@@ -81,8 +80,7 @@ export default class Header extends React.Component {
                 aria-label="menu"
                 aria-expanded="false"
                 data-target="navbarBasicExample"
-                onClick={() => this.handleMobileMenu()}
-              >
+                onClick={() => this.handleMobileMenu()}>
                 <span aria-hidden="true" />
                 <span aria-hidden="true" />
                 <span aria-hidden="true" />

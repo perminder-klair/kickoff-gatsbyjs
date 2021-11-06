@@ -12,7 +12,7 @@ const Container = styled.article`
       margin-bottom: 0.5rem;
     }
     a {
-      color: ${props => props.theme.darkAccent};
+      color: ${(props) => props.theme.darkAccent};
     }
     .category {
       margin-left: 10px;
