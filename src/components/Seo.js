@@ -1,69 +1,89 @@
-import React from 'react';
-import Helmet from 'react-helmet';
-import PropTypes from 'prop-types';
+/**
+ * SEO component that queries for data with
+ *  Gatsby's useStaticQuery React hook
+ *
+ * See: https://www.gatsbyjs.com/docs/use-static-query/
+ */
 
-import config from '../utils/config';
+import * as React from "react"
+import PropTypes from "prop-types"
+import { Helmet } from "react-helmet"
+import { useStaticQuery, graphql } from "gatsby"
 
-const getSchemaOrgJSONLD = ({ url, title }) => [
-  {
-    '@context': 'http://schema.org',
-    '@type': 'WebSite',
-    url,
-    name: title,
-    alternateName: config.siteName,
-  },
-];
+function Seo({ description, lang, meta, title }) {
+  const { site } = useStaticQuery(
+    graphql`
+      query {
+        site {
+          siteMetadata {
+            title
+            description
+            author
+          }
+        }
+      }
+    `
+  )
 
-const Seo = ({ title, description, url, image }) => {
-  const pageTitle = `${title} - ${config.siteName}`;
-
-  const schemaOrgJSONLD = getSchemaOrgJSONLD({
-    url,
-    pageTitle,
-    image,
-    description,
-  });
+  const metaDescription = description || site.siteMetadata.description
+  const defaultTitle = site.siteMetadata?.title
 
   return (
-    <Helmet>
-      {/* General tags */}
-      <title>{pageTitle}</title>
-      <meta name="description" content={description} />
-      <meta name="image" content={image} />
-
-      {/* Schema.org tags */}
-      <script type="application/ld+json">
-        {JSON.stringify(schemaOrgJSONLD)}
-      </script>
-
-      {/* OpenGraph tags */}
-      <meta property="og:url" content={url} />
-      <meta property="og:title" content={pageTitle} />
-      <meta property="og:description" content={description} />
-      <meta property="og:image" content={image} />
-      <meta property="fb:app_id" content={config.fbAppID} />
-
-      {/* Twitter Card tags */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:creator" content={config.twitter} />
-      <meta name="twitter:title" content={pageTitle} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={image} />
-    </Helmet>
-  );
-};
+    <Helmet
+      htmlAttributes={{
+        lang,
+      }}
+      title={title}
+      titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
+      meta={[
+        {
+          name: `description`,
+          content: metaDescription,
+        },
+        {
+          property: `og:title`,
+          content: title,
+        },
+        {
+          property: `og:description`,
+          content: metaDescription,
+        },
+        {
+          property: `og:type`,
+          content: `website`,
+        },
+        {
+          name: `twitter:card`,
+          content: `summary`,
+        },
+        {
+          name: `twitter:creator`,
+          content: site.siteMetadata?.author || ``,
+        },
+        {
+          name: `twitter:title`,
+          content: title,
+        },
+        {
+          name: `twitter:description`,
+          content: metaDescription,
+        },
+      ].concat(meta)}
+    />
+  )
+}
 
 Seo.defaultProps = {
-  url: config.siteUrl,
-  image: `${config.siteUrl}/${config.logo}`,
-  description: config.description,
-};
+  lang: `en`,
+  meta: [],
+  description: ``,
+}
 
 Seo.propTypes = {
-  title: PropTypes.string.isRequired,
   description: PropTypes.string,
-  url: PropTypes.string,
-  image: PropTypes.string,
-};
+  lang: PropTypes.string,
+  meta: PropTypes.arrayOf(PropTypes.object),
+  title: PropTypes.string.isRequired,
+}
 
-export default Seo;
+export default Seo
